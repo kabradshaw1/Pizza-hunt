@@ -10,10 +10,12 @@ const {
 router.route('/:pizzaId').post(addComment);
 
 // /api/comments/<pizzaId>/<commentId>
-router.route('/:pizzaId/:commentId').delete(removeComment);
+router
+  .route('/:pizzaId/:commentId')
+  .put(addReply)
+  .delete(removeComment);
 
+// /api/comments/<pizzaId>/<commentId>/<replyId>
 router.route('/:pizzaId/:commentId/:replyId').delete(removeReply);
-
-router.route('/:pizzaId/:commentId').put(addReply).delete(removeComment);
 
 module.exports = router;
